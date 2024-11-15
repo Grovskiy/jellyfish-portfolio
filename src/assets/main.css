@@ -1,0 +1,19 @@
+@import './base.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-shadow-custom {
+  text-shadow: 0 13px 30px rgba(80, 63, 141, 0.15);
+}
+.text-gradient {
+  @apply bg-gradient-to-r from-[#503f8d] to-[#6b7ab9];
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#app {
+  font-weight: normal;
+}
