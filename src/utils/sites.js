@@ -1,15 +1,28 @@
+import { defineAsyncComponent } from 'vue'
+
+const template = defineAsyncComponent(() => import('@/components/SiteScreen/SiteScreen.vue'))
+
 export const sites = [
   {
-    id: 1,
-    number: '01',
+    props: {
+      id: 1,
+      number: '01',
+    },
+    template,
   },
   {
-    id: 2,
-    number: '02',
+    props: {
+      id: 2,
+      number: '02',
+    },
+    template,
   },
   {
-    id: 3,
-    number: '03',
+    props: {
+      id: 3,
+      number: '03',
+    },
+    template,
   },
   // Add other sections as needed
-];
+]

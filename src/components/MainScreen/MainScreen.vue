@@ -2,6 +2,7 @@
 import IconJellyfishUse from '@/components/icons/IconJellyfishUse.vue'
 import IconJellyfishSymbol from '@/components/icons/IconJellyfishSymbol.vue'
 import MainScreenCol from '@/components/MainScreen/MainScreenCol.vue'
+import SlideSection from '@/components/SlideSection.vue'
 const emit = defineEmits(['handleBtnDown', 'submit'])
 
 defineProps({
@@ -13,50 +14,55 @@ defineProps({
 </script>
 
 <template>
-  <IconJellyfishSymbol />
-  <div class="absolute top-0 left-0 flex w-full h-full bg-gradient-to-r from-[#cde0ef] to-white" :class="{animated: isFirstSlide}">
-    <MainScreenCol>
-      <IconJellyfishUse class="fish fish__one-big" />
-      <IconJellyfishUse class="fish fish__one-small" />
-    </MainScreenCol>
-    <MainScreenCol>
-      <IconJellyfishUse class="fish fish__two-small" />
-      <IconJellyfishUse class="fish fish__two-big" />
-    </MainScreenCol>
-    <MainScreenCol>
-      <IconJellyfishUse class="fish fish__three-big" />
-    </MainScreenCol>
-    <MainScreenCol>
-      <IconJellyfishUse class="fish fish__four-big" />
-    </MainScreenCol>
-    <MainScreenCol>
-      <IconJellyfishUse class="fish fish__five-big" />
-    </MainScreenCol>
-    <MainScreenCol>
-      <IconJellyfishUse class="fish fish__six-big" />
-      <IconJellyfishUse class="fish fish__six-small" />
-    </MainScreenCol>
-  </div>
+  <SlideSection>
+    <IconJellyfishSymbol class="absolute" />
+    <div
+      class="absolute top-0 left-0 flex w-full h-full bg-gradient-to-r from-[#cde0ef] to-white"
+      :class="{ animated: isFirstSlide }"
+    >
+      <MainScreenCol>
+        <IconJellyfishUse class="fish fish__one-big" />
+        <IconJellyfishUse class="fish fish__one-small" />
+      </MainScreenCol>
+      <MainScreenCol>
+        <IconJellyfishUse class="fish fish__two-small" />
+        <IconJellyfishUse class="fish fish__two-big" />
+      </MainScreenCol>
+      <MainScreenCol>
+        <IconJellyfishUse class="fish fish__three-big" />
+      </MainScreenCol>
+      <MainScreenCol>
+        <IconJellyfishUse class="fish fish__four-big" />
+      </MainScreenCol>
+      <MainScreenCol>
+        <IconJellyfishUse class="fish fish__five-big" />
+      </MainScreenCol>
+      <MainScreenCol>
+        <IconJellyfishUse class="fish fish__six-big" />
+        <IconJellyfishUse class="fish fish__six-small" />
+      </MainScreenCol>
+    </div>
 
-  <h1 class="text-9xl text-white z-10 uppercase font-extrabold text-shadow-custom">Grovskiy</h1>
-  <h2 class="text-5xl italic text-[#0b2349] z-10 font-semibold text-gradient">
-    Vue Front-end developer
-  </h2>
+    <h1 class="text-9xl text-white z-10 uppercase font-extrabold text-shadow-custom">Grovskiy</h1>
+    <h2 class="text-5xl italic text-[#0b2349] z-10 font-semibold text-gradient">
+      Vue Front-end developer
+    </h2>
 
-  <button
-    @click="emit('handleBtnDown')"
-    class="absolute z-5 bottom-8 left-[calc(50%-2%)] flex w-14 h-14 items-center justify-center border border-[#9391d9] rounded-full hover:opacity-60 transition-opacity duration-300 animate-bounce"
-    aria-label="Next"
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" height="26" width="16" class="rotate-180">
-      <path
-        d="M15.647 8.348 8.524.403a.673.673 0 0 0-1.018 0L.383 8.35c-.28.312-.233.583.048.895.282.314.688.314.97 0l5.895-6.527V25.05c0 .443.322.803.72.803.397 0 .72-.36.72-.803V2.716l5.895 6.528c.282.313.663.313.945 0 .28-.313.352-.584.071-.896z"
-        clip-rule="evenodd"
-        fill="#9391d9"
-        fill-rule="evenodd"
-      />
-    </svg>
-  </button>
+    <button
+      @click="emit('handleBtnDown')"
+      class="absolute z-5 bottom-8 left-[calc(50%-2%)] flex w-14 h-14 items-center justify-center border border-[#9391d9] rounded-full hover:opacity-60 transition-opacity duration-300 animate-bounce"
+      aria-label="Next"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" height="26" width="16" class="rotate-180">
+        <path
+          d="M15.647 8.348 8.524.403a.673.673 0 0 0-1.018 0L.383 8.35c-.28.312-.233.583.048.895.282.314.688.314.97 0l5.895-6.527V25.05c0 .443.322.803.72.803.397 0 .72-.36.72-.803V2.716l5.895 6.528c.282.313.663.313.945 0 .28-.313.352-.584.071-.896z"
+          clip-rule="evenodd"
+          fill="#9391d9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </button>
+  </SlideSection>
 </template>
 
 <style scoped lang="scss">
@@ -92,7 +98,7 @@ $col-width: 20%;
 
     & {
       animation: #{$name} #{$duration} ease-in-out #{$delay} infinite;
-      //animation-play-state: paused;
+      animation-play-state: paused;
     }
   }
 }
@@ -100,7 +106,7 @@ $col-width: 20%;
 // Applying the combined mixin to different fish elements
 .fish {
   .animated & {
-    //animation-play-state: running;
+    animation-play-state: running;
   }
   &__one-big {
     @include svg-animate(oneBig, 600px, 322px, -1, 20vh, -25vh, right, 25s, -3s);
