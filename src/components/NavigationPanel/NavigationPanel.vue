@@ -21,10 +21,10 @@ defineProps({
 <template>
   <Transition>
     <div
-      class="js-controls flex justify-center z-10 absolute bottom-0 right-0 left-0 h-[90px] overflow-hidden"
+      class="js-controls flex justify-center z-10 absolute bottom-0 right-0 left-0 h-[70px] overflow-hidden"
       v-show="!isFirstSlide"
     >
-      <div class="relative w-3/5">
+      <div class="relative sm:w-3/5">
         <button
           @click="handleNavigation(state, DIRECTION.PREV)"
           class="js-prev flex w-[70px] h-[70px] items-center justify-center bg-[#9391d9] hover:opacity-80 absolute right-0 bottom-0 transition-opacity duration-300"
@@ -41,7 +41,7 @@ defineProps({
           </svg>
         </button>
       </div>
-      <div class="relative w-2/5">
+      <div class="relative sm:w-2/5">
         <Transition>
           <button
             v-show="!isLastSlide"

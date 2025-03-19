@@ -1,0 +1,34 @@
+// Disable weights
+@use '@ibm/plex-sans/scss' as PlexSans with (
+  $font-prefix: '@ibm/plex-sans',
+  $font-weights: (
+    bold: true,
+    boldItalic: false,
+    extralight: false,
+    extralightItalic: false,
+    italic: false,
+    light: true,
+    lightItalic: false,
+    medium: false,
+    mediumItalic: false,
+    regular: false,
+    semibold: false,
+    semiboldItalic: false,
+    text: false,
+    textItalic: false,
+    thin: false,
+    thinItalic: false,
+  )
+);
+
+@include PlexSans.all();
+
+@font-face {
+  font-family: 'Have Heart One';
+  src:
+    url('@/assets/fonts/HaveHeartOne.woff') format('woff'),
+    url('@/assets/fonts/HaveHeartOne.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

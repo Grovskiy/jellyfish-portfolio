@@ -1,6 +1,15 @@
+<script setup>
+defineProps({
+  id: {
+    type: String,
+    default: 'icon-jellyfish',
+  },
+})
+</script>
+
 <template>
   <svg xmlns="http://www.w3.org/2000/svg" width="255" height="135" viewBox="0 0 255 135">
-    <symbol id="icon-jellyfish" viewBox="0 0 255 135">
+    <symbol :id="id" viewBox="0 0 255 135">
       <linearGradient
         id="a"
         gradientUnits="userSpaceOnUse"

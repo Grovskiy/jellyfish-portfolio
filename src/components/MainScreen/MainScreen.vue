@@ -43,10 +43,8 @@ defineProps({
       </MainScreenCol>
     </div>
 
-    <h1 class="text-9xl text-white z-10 uppercase font-extrabold text-shadow-custom">Grovskiy</h1>
-    <h2 class="text-5xl italic text-[#0b2349] z-10 font-semibold text-gradient">
-      Vue Front-end developer
-    </h2>
+    <h1 class="main-title text-white z-10 uppercase font-bold text-shadow-custom">Grovskiy</h1>
+    <h2 class="sub-title text-[#0b2349] z-10 text-gradient">Vue Front-end developer</h2>
 
     <button
       @click="emit('handleBtnDown')"
@@ -66,6 +64,17 @@ defineProps({
 </template>
 
 <style scoped lang="scss">
+.main-title {
+  font-family: 'IBM Plex Sans', sans-serif;
+  letter-spacing: -6px;
+  font-size: 14vw;
+}
+.sub-title {
+  margin-top: -11%;
+  font-family: 'Have Heart One', sans-serif;
+  font-weight: normal;
+  font-size: 9vw;
+}
 $col-width: 20%;
 @mixin svg-animate(
   $name,

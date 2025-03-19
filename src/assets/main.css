@@ -1,5 +1,6 @@
+@import './fonts.scss';
 @import './base.css';
-
+@import './section.scss';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
