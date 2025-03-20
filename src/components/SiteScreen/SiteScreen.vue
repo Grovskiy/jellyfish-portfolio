@@ -1,11 +1,12 @@
 <script setup>
 import SlideSection from '@/components/SlideSection.vue'
 import BaseButton from '@/components/UI/BaseButton.vue'
+import { basePath } from '@/utils/basePath'
 import { computed } from 'vue'
 
 const props = defineProps({
   id: {
-    type: String,
+    type: Number,
     required: true,
   },
   name: {
@@ -21,11 +22,13 @@ const props = defineProps({
   },
 })
 
+const path = basePath(import.meta.env.MODE)
+
 const linkFormatted = computed(() => {
-  return `/sites/${props.link}/index.html`
+  return `${path}sites/${props.link}/index.html`
 })
 const previewFormatted = computed(() => {
-  return `/sites/${props.link}/preview.png`
+  return `${path}sites/${props.link}/preview.png`
 })
 </script>
 
