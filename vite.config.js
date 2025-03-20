@@ -6,7 +6,8 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig((mode) => ({
+  base: mode === 'production' ? '/jellyfish-portfolio/' : '/',
   plugins: [
     vue(),
     vueDevTools(),
@@ -24,4 +25,4 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-})
+}))
