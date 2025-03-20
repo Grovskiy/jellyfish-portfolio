@@ -24,7 +24,7 @@ const components = [
 </script>
 
 <template>
-  <main class="main-container relative h-screen w-screen overflow-hidden bg-[#22283f]">
+  <main class="main-container relative w-screen overflow-hidden bg-[#22283f]">
     <Transition :name="state.direction">
       <component
         :is="components[state.currentSlide].template"
@@ -40,6 +40,11 @@ const components = [
 <style scoped lang="scss">
 .main-container {
   perspective: 135vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .prev-enter-active,

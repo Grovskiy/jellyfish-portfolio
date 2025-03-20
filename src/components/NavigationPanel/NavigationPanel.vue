@@ -21,12 +21,12 @@ defineProps({
 <template>
   <Transition>
     <div
-      class="js-controls flex justify-center z-10 absolute bottom-0 right-0 left-0 h-[70px] overflow-hidden"
+      class="js-controls flex justify-center z-10 fixed bottom-0 right-0 left-0 h-[70px] overflow-hidden"
       v-show="!isFirstSlide"
     >
       <div class="relative sm:w-3/5">
         <button
-          @click="handleNavigation(state, DIRECTION.PREV)"
+          @click.prevent="handleNavigation(state, DIRECTION.PREV)"
           class="js-prev flex w-[70px] h-[70px] items-center justify-center bg-[#9391d9] hover:opacity-80 absolute right-0 bottom-0 transition-opacity duration-300"
           aria-label="prev section"
           :disabled="isFirstSlide"
@@ -45,7 +45,7 @@ defineProps({
         <Transition>
           <button
             v-show="!isLastSlide"
-            @click="handleNavigation(state, DIRECTION.NEXT)"
+            @click.prevent="handleNavigation(state, DIRECTION.NEXT)"
             class="js-next inactive flex w-[70px] h-[70px] items-center justify-center bg-[#9bd9ec] hover:opacity-80 rotate-180 absolute left-0 bottom-0 transition-opacity duration-300"
             aria-label="next section"
             :disabled="isFirstSlide || isLastSlide"

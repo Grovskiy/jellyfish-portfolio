@@ -3,23 +3,21 @@
   @apply sm:flex w-full h-full;
 
   &__number {
-    @apply text-white text-[120px] leading-[100px] mx-auto mt-8 mb-6 relative;
-    @apply md:text-[220px] md:leading-[170px] md:mr-[63px] md:mb-9;
+    @apply text-white mx-auto mt-8 mb-6 relative md:mr-[63px] xl:mb-8;
+    @apply text-[60px] leading-[40px];
+    @apply sm:text-[120px] sm:leading-[100px];
+    @apply md:text-[160px] md:leading-[110px];
+    @apply xl:text-[200px] lg:leading-[130px];
     text-shadow: 0 13px 30px rgb(85 61 145 / 15%);
     font-weight: 900;
     letter-spacing: -5px;
-
-    // @media only screen and (width <= 1200px) {
-    //   @apply m-[-7%_7%_36px_auto] text-[22vw] leading-[219px];
-    // }
-    // @media only screen and (height <= 600px) {
-    //   @apply mt-0 text-[11vw] leading-[13vw];
-    // }
   }
   &__title {
     font-weight: 900;
-    @apply relative pb-4 ml-4 text-[#353043] text-2xl pr-5;
-    @apply md:pb-6 md:ml-40 md:text-4xl md:leading-[45px] md:pr-8;
+    @apply relative text-[#353043];
+    @apply pb-4 md:pb-6;
+    @apply pr-5 md:pr-8;
+    @apply text-xl sm:text-xl md:text-2xl lg:text-4xl;
 
     .cd-section:nth-child(even) & {
       @apply text-white;
@@ -28,27 +26,24 @@
       @apply absolute bottom-0 left-[2px] w-[68px] h-[2px] bg-[#637bbc];
       content: '';
     }
-
-    // @media only screen and (width <= 1200px) {
-    //   @apply ml-[26%] text-[4vw] leading-[4.2vw];
-    // }
   }
   &__text {
     font-weight: 100;
-    @apply block mt-4 ml-4 text-[#353043] text-base pr-4 z-10;
-    @apply md:mt-8 md:ml-44 md:pr-8;
+    @apply block mt-4 text-[#353043] text-base pr-4 sm:pl-4 z-10;
+    @apply md:mt-8 md:pr-8;
 
     .cd-section:nth-child(even) & {
       @apply text-white;
     }
   }
   &__btn {
-    @apply mt-4 ml-4 flex pb-8;
-    @apply md:mt-8 md:ml-44 md:pb-16;
+    @apply mt-4 flex pb-8 sm:pl-4;
+    @apply md:mt-4 md:pb-16;
   }
 
   &__left {
-    @apply relative flex flex-col justify-center h-3/5 sm:h-auto sm:w-3/5 overflow-hidden;
+    @apply relative flex flex-col justify-around sm:justify-center h-4/5 sm:h-auto md:w-4/5 lg:w-3/5 overflow-hidden;
+    @apply pl-4 sm:pl-6 md:pl-20 lg:pl-32 xl:pl-44;
     background: linear-gradient(135deg, #c6e1f0 0, #edf0fe 64%, #fff 100%);
     .cd-section:nth-child(even) & {
       background: linear-gradient(135deg, #9391d9 0, #9ce2ee 100%);
@@ -56,14 +51,11 @@
   }
 
   &__right {
-    @apply relative flex flex-col justify-center overflow-x-hidden h-2/5 sm:h-auto sm:w-2/5;
+    @apply relative flex flex-col justify-center overflow-x-hidden h-1/5 sm:h-auto md:w-1/5 lg:w-2/5;
     background: linear-gradient(45deg, #9391d9 0, #9ce2ee 100%);
     .cd-section:nth-child(even) & {
       background: linear-gradient(45deg, #637dbd 0, #553d91 100%);
     }
-    // @media only screen and (height <= 900px) {
-    //   @apply py-[45px];
-    // }
   }
 }
 

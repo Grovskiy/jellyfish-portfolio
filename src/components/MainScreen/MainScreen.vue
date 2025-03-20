@@ -17,18 +17,18 @@ defineProps({
   <SlideSection>
     <IconJellyfishSymbol class="absolute" />
     <div
-      class="absolute top-0 left-0 flex w-full h-full bg-gradient-to-r from-[#cde0ef] to-white"
+      class="overflow-hidden absolute top-0 left-0 flex w-full h-full bg-gradient-to-r from-[#cde0ef] to-white"
       :class="{ animated: isFirstSlide }"
     >
       <MainScreenCol>
         <IconJellyfishUse class="fish fish__one-big" />
         <IconJellyfishUse class="fish fish__one-small" />
       </MainScreenCol>
-      <MainScreenCol>
+      <MainScreenCol class="hidden md:block">
         <IconJellyfishUse class="fish fish__two-small" />
         <IconJellyfishUse class="fish fish__two-big" />
       </MainScreenCol>
-      <MainScreenCol>
+      <MainScreenCol class="hidden md:block">
         <IconJellyfishUse class="fish fish__three-big" />
       </MainScreenCol>
       <MainScreenCol>
@@ -42,7 +42,6 @@ defineProps({
         <IconJellyfishUse class="fish fish__six-small" />
       </MainScreenCol>
     </div>
-
     <h1 class="main-title text-white z-10 uppercase font-bold text-shadow-custom">Grovskiy</h1>
     <h2 class="sub-title text-[#0b2349] z-10 text-gradient">Vue Front-end developer</h2>
 
@@ -67,13 +66,13 @@ defineProps({
 .main-title {
   font-family: 'IBM Plex Sans', sans-serif;
   letter-spacing: -6px;
-  font-size: 14vw;
+  @apply text-7xl md:text-[14vw];
 }
 .sub-title {
-  margin-top: -11%;
   font-family: 'Have Heart One', sans-serif;
   font-weight: normal;
-  font-size: 9vw;
+  @apply text-7xl leading-none md:text-[9vw] text-center px-4;
+  @apply mt-2 md:-mt-12;
 }
 $col-width: 20%;
 @mixin svg-animate(

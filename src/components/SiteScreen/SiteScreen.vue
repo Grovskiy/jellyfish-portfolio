@@ -74,7 +74,7 @@ const previewFormatted = computed(() => {
             <img
               :src="previewFormatted"
               :alt="props.name"
-              class="object-cover sm:object-left-top hover:object-center duration-[2s,15s] transition-[object-position]"
+              class="object-cover w-full sm:w-auto sm:object-left-top hover:object-center duration-[2s,15s] transition-[object-position]"
             />
           </a>
         </div>
