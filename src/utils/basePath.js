@@ -1,1 +1,3 @@
-export const basePath = (mode) => (mode === 'production' ? '/jellyfish-portfolio/' : '/')
+import { repositoryPath } from '@/data/repositoryPath'
+
+export const basePath = (mode) => (mode === 'production' ? repositoryPath : '/')

@@ -1,7 +1,7 @@
 <script setup>
 import { sites } from '@/utils/sites.js'
 import { computed, reactive } from 'vue'
-import { DIRECTION } from '@/utils/direction.js'
+import { DIRECTION } from '@/data/direction.js'
 import { handleNavigation } from '@/utils/navigationHandler.js'
 import MainScreen from '@/components/MainScreen/MainScreen.vue'
 import NavigationPanel from '@/components/NavigationPanel/NavigationPanel.vue'

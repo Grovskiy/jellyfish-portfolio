@@ -1,4 +1,4 @@
-import { DIRECTION } from '@/utils/direction.js'
+import { DIRECTION } from '@/data/direction.js'
 
 export const handleNavigation = (state, direction) => {
   state.direction = direction

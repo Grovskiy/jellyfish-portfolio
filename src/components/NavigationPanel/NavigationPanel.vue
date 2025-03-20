@@ -1,6 +1,6 @@
 <script setup>
 import { handleNavigation } from '@/utils/navigationHandler.js'
-import { DIRECTION } from '@/utils/direction.js'
+import { DIRECTION } from '@/data/direction.js'
 
 defineProps({
   isFirstSlide: {

@@ -46,8 +46,8 @@ defineProps({
     <h2 class="sub-title text-[#0b2349] z-10 text-gradient">Vue Front-end developer</h2>
 
     <button
-      @click="emit('handleBtnDown')"
-      class="absolute z-5 bottom-8 left-[calc(50%-2%)] flex w-14 h-14 items-center justify-center border border-[#9391d9] rounded-full hover:opacity-60 transition-opacity duration-300 animate-bounce"
+      @click.prevent="emit('handleBtnDown')"
+      class="js-main-down absolute z-5 bottom-8 left-[calc(50%-2%)] flex w-14 h-14 items-center justify-center border border-[#9391d9] rounded-full hover:opacity-60 transition-opacity duration-300 animate-bounce"
       aria-label="Next"
     >
       <svg xmlns="http://www.w3.org/2000/svg" height="26" width="16" class="rotate-180">
