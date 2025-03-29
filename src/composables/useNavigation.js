@@ -39,6 +39,7 @@ export function useNavigation() {
     direction: readonly(direction),
     isFirstSlide,
     isLastSlide,
+    totalSlides,
     navigate,
     goToSlide,
     setTotalSlides,

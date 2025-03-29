@@ -25,7 +25,7 @@ defineProps({
       <div class="relative sm:w-3/5">
         <button
           @click.prevent="navigate(DIRECTION.PREV)"
-          class="js-prev flex w-[70px] h-[70px] items-center justify-center bg-[#9391d9] hover:opacity-80 absolute right-0 bottom-0 transition-opacity duration-300"
+          class="js-prev flex w-[70px] h-[70px] items-center justify-center bg-purple-500 hover:opacity-80 absolute right-0 bottom-0 transition-opacity duration-300"
           aria-label="prev section"
           :disabled="isFirstSlide"
         >

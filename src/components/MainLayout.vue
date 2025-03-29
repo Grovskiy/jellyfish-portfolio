@@ -3,6 +3,7 @@ import { sites } from '@/utils/sites.js'
 import { DIRECTION } from '@/data/direction.js'
 import MainScreen from '@/components/MainScreen/MainScreen.vue'
 import NavigationPanel from '@/components/NavigationPanel/NavigationPanel.vue'
+import NavigationProgress from '@/components/NavigationPanel/NavigationProgress.vue'
 
 import { useNavigation } from '@/composables/useNavigation'
 const { currentSlide, direction, isFirstSlide, isLastSlide, navigate, setTotalSlides } =
@@ -28,8 +29,8 @@ setTotalSlides(components.length)
         @handle-btn-down="navigate(DIRECTION.NEXT)"
       />
     </Transition>
-    typeof
   </main>
+  <NavigationProgress />
   <NavigationPanel :is-last-slide="isLastSlide" :is-first-slide="isFirstSlide" />
 </template>
 
