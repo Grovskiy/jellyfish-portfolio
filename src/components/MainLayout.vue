@@ -1,18 +1,12 @@
 <script setup>
 import { sites } from '@/utils/sites.js'
-import { computed, reactive } from 'vue'
 import { DIRECTION } from '@/data/direction.js'
-import { handleNavigation } from '@/utils/navigationHandler.js'
 import MainScreen from '@/components/MainScreen/MainScreen.vue'
 import NavigationPanel from '@/components/NavigationPanel/NavigationPanel.vue'
 
-const state = reactive({
-  currentSlide: 0,
-  direction: DIRECTION.NEXT,
-})
-
-const isFirstSlide = computed(() => state.currentSlide === 0)
-const isLastSlide = computed(() => state.currentSlide + 1 === components.length)
+import { useNavigation } from '@/composables/useNavigation'
+const { currentSlide, direction, isFirstSlide, isLastSlide, navigate, setTotalSlides } =
+  useNavigation()
 
 const components = [
   {
@@ -21,20 +15,22 @@ const components = [
   },
   ...sites,
 ]
+setTotalSlides(components.length)
 </script>
 
 <template>
   <main class="main-container relative w-screen overflow-hidden bg-[#22283f]">
-    <Transition :name="state.direction">
+    <Transition :name="direction">
       <component
-        :is="components[state.currentSlide].template"
-        :key="state.currentSlide"
-        v-bind="components[state.currentSlide].props"
-        @handle-btn-down="handleNavigation(state, DIRECTION.NEXT)"
+        :is="components[currentSlide].template"
+        :key="currentSlide"
+        v-bind="components[currentSlide].props"
+        @handle-btn-down="navigate(DIRECTION.NEXT)"
       />
     </Transition>
+    typeof
   </main>
-  <NavigationPanel :state="state" :is-last-slide="isLastSlide" :is-first-slide="isFirstSlide" />
+  <NavigationPanel :is-last-slide="isLastSlide" :is-first-slide="isFirstSlide" />
 </template>
 
 <style scoped lang="scss">

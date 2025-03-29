@@ -1,6 +1,8 @@
 <script setup>
-import { handleNavigation } from '@/utils/navigationHandler.js'
 import { DIRECTION } from '@/data/direction.js'
+
+import { useNavigation } from '@/composables/useNavigation'
+const { navigate } = useNavigation()
 
 defineProps({
   isFirstSlide: {
@@ -9,10 +11,6 @@ defineProps({
   },
   isLastSlide: {
     type: Boolean,
-    required: true,
-  },
-  state: {
-    type: Object,
     required: true,
   },
 })
@@ -26,7 +24,7 @@ defineProps({
     >
       <div class="relative sm:w-3/5">
         <button
-          @click.prevent="handleNavigation(state, DIRECTION.PREV)"
+          @click.prevent="navigate(DIRECTION.PREV)"
           class="js-prev flex w-[70px] h-[70px] items-center justify-center bg-[#9391d9] hover:opacity-80 absolute right-0 bottom-0 transition-opacity duration-300"
           aria-label="prev section"
           :disabled="isFirstSlide"
@@ -45,7 +43,7 @@ defineProps({
         <Transition>
           <button
             v-show="!isLastSlide"
-            @click.prevent="handleNavigation(state, DIRECTION.NEXT)"
+            @click.prevent="navigate(DIRECTION.NEXT)"
             class="js-next inactive flex w-[70px] h-[70px] items-center justify-center bg-[#9bd9ec] hover:opacity-80 rotate-180 absolute left-0 bottom-0 transition-opacity duration-300"
             aria-label="next section"
             :disabled="isFirstSlide || isLastSlide"
