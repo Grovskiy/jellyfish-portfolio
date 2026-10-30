@@ -64,6 +64,22 @@
       "alt": "Reconstructed preview: adapted safety systems website with a geometric grid and red accents.",
       "color": "#d9ddda",
       "disclosure": "Archived work. This visual is a reconstruction of the original layout with adapted names and content."
+    },
+    {
+      "id": "financial-interface",
+      "title": "Trading interface",
+      "eyebrow": "Financial product interface",
+      "kind": "Archived frontend work",
+      "featured": true,
+      "summary": "An account interface for browsing offers and reviewing transactions.",
+      "description": "A selection of frontend screens for a larger financial product. This view presents a trading catalogue with filters and account navigation. The visual has been adapted with neutral branding and sample data.",
+      "role": "Frontend implementation of selected screens",
+      "scope": "Account interface · Data display",
+      "year": null,
+      "image": "financial-interface.webp",
+      "alt": "Adapted trading interface with sample offers and account navigation.",
+      "color": "#d1d7e2",
+      "disclosure": "Archived work: selected interface implementation, presented with anonymised branding and illustrative data."
     }
   ],
   "archive": [
@@ -196,6 +212,16 @@
       "color": "#d8d5ca",
       "description": "Hotel website with rooms, dining and gallery sections.",
       "url": "archive/park/"
+    },
+    {
+      "id": "archive-financial-interface",
+      "title": "Trading interface",
+      "eyebrow": "Financial product interface",
+      "description": "Frontend implementation of selected account screens for a financial product.",
+      "image": "financial-interface.webp",
+      "alt": "Adapted trading interface with sample offers and account navigation.",
+      "color": "#d1d7e2",
+      "url": "projects/financial-interface/"
     }
   ]
 }
