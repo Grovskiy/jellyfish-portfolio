@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f4f7">
+  <meta name="description" content="An interactive sample-data adaptation of Grovskiy's Simple Tracking calorie tracker.">
+  <title>Simple Tracking — interactive portfolio demo</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to tracker</a>
+  <header class="demo-bar">
+    <a class="back" href="../../#work"><span aria-hidden="true">←</span> Back to portfolio</a>
+    <p><span class="demo-dot" aria-hidden="true"></span> Interactive demo <span class="subtle">· Sample data</span></p>
+    <a class="source" href="https://github.com/Grovskiy/simple-tracking-native" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+  </header>
+  <div class="page-shell">
+    <section class="intro" aria-labelledby="intro-title">
+      <p class="eyebrow"><span class="brand-mark" aria-hidden="true">✳</span> SIMPLE TRACKING</p>
+      <h1 id="intro-title">A little more<br>clarity, daily<span class="accent">.</span></h1>
+      <p class="intro-copy">A simple calorie tracker for keeping a daily log and seeing progress at a glance.</p>
+      <p class="demo-description">This portfolio adaptation uses sample data. Changes last only until the page is reloaded.</p>
+      <a class="original" href="https://github.com/Grovskiy/simple-tracking-native" target="_blank" rel="noopener noreferrer">View the original project <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+      <div class="intro-note" aria-hidden="true"><span>01 / THE INTERFACE</span><span>LOG · TRACK · REVIEW</span></div>
+    </section>
+    <main id="main" class="tracker" aria-labelledby="tracker-heading">
+      <header class="tracker-head">
+        <div><p class="label">YOUR DAILY LOG</p><h2 id="tracker-heading">Your daily log<span class="accent">.</span></h2></div>
+        <button type="button" class="icon-button gear" id="goal-open" aria-label="Change daily calorie goal" title="Change daily goal"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 8.4a3.6 3.6 0 1 0 0 7.2 3.6 3.6 0 0 0 0-7.2Z"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.07.07-1.84 3.18-.1-.03a1.7 1.7 0 0 0-1.78.68l-.04.08h-3.67l-.04-.08a1.7 1.7 0 0 0-1.78-.68l-.1.03-1.84-3.18.07-.07A1.7 1.7 0 0 0 9.03 15l-.09-.04v-3.68l.09-.04a1.7 1.7 0 0 0-.34-1.88l-.07-.07 1.84-3.18.1.03a1.7 1.7 0 0 0 1.78-.68l.04-.08h3.67l.04.08a1.7 1.7 0 0 0 1.78.68l.1-.03 1.84 3.18-.07.07a1.7 1.7 0 0 0-.34 1.88l.09.04v3.68l-.09.04Z" transform="translate(-2.1 -1.1)"/></svg></button>
+      </header>
+      <div class="date-switch" role="group" aria-label="Choose day">
+        <button class="icon-button" type="button" id="prev-day" aria-label="Previous day"><span aria-hidden="true">←</span></button>
+        <button class="date-label" type="button" id="today" title="Return to today"><span class="calendar" aria-hidden="true">▦</span><span id="date-text"></span><span id="today-chip" class="today-chip">TODAY</span></button>
+        <button class="icon-button" type="button" id="next-day" aria-label="Next day"><span aria-hidden="true">→</span></button>
+      </div>
+      <section class="progress-card" aria-labelledby="progress-heading">
+        <div class="section-top"><div><p class="label">DAILY PROGRESS</p><h3 id="progress-heading">Your overview</h3></div><span class="percentage" id="percent">0%</span></div>
+        <div class="progress-track" role="progressbar" aria-label="Daily calorie goal progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress"><div id="progress-fill" class="progress-fill"></div></div>
+        <div class="metrics">
+          <div><span>Consumed</span><strong id="consumed">0 <small>kcal</small></strong></div>
+          <div><span id="remaining-label">Remaining</span><strong id="remaining">0 <small>kcal</small></strong></div>
+          <div><span>Daily goal</span><strong id="goal-value">2,000 <small>kcal</small></strong></div>
+        </div>
+      </section>
+      <section class="log-card" aria-labelledby="log-heading">
+        <div class="section-top log-title"><div><p class="label">YOUR ENTRIES</p><h3 id="log-heading">Food log</h3></div><span class="entries-count" id="entries-count">0 entries</span></div>
+        <div class="entries" id="entries" aria-live="polite"></div>
+        <button id="add-open" type="button" class="primary"><span aria-hidden="true">＋</span> Add an entry</button>
+      </section>
+      <p class="tracker-note"><span aria-hidden="true">✳</span> A small step, one entry at a time.</p>
+      <p class="sr-only" id="announcement" aria-live="polite"></p>
+    </main>
+  </div>
+  <dialog id="entry-dialog" aria-labelledby="entry-title">
+    <div class="dialog-head"><div><p class="label">FOOD LOG</p><h2 id="entry-title">Add an entry</h2></div><button class="icon-button" type="button" data-close="entry-dialog" aria-label="Close">✕</button></div>
+    <form id="entry-form">
+      <label for="food">Food</label>
+      <select id="food" name="food" required>
+        <option value="oats">Oats · 389 kcal / 100 g</option><option value="banana">Banana · 89 kcal / 100 g</option><option value="yogurt">Greek yogurt · 97 kcal / 100 g</option><option value="rice">Cooked rice · 130 kcal / 100 g</option><option value="chicken">Chicken breast · 165 kcal / 100 g</option><option value="apple">Apple · 52 kcal / 100 g</option>
+      </select>
+      <label for="grams">Amount <span>(g)</span></label>
+      <input id="grams" name="grams" type="number" min="1" max="5000" step="1" value="100" required>
+      <p class="helper">Sample values are used in this demo.</p>
+      <button type="submit" class="primary">Add to food log</button>
+    </form>
+  </dialog>
+  <dialog id="goal-dialog" aria-labelledby="goal-title">
+    <div class="dialog-head"><div><p class="label">SETTINGS</p><h2 id="goal-title">Daily goal</h2></div><button class="icon-button" type="button" data-close="goal-dialog" aria-label="Close">✕</button></div>
+    <form id="goal-form">
+      <label for="goal-input">Goal <span>(kcal)</span></label>
+      <input id="goal-input" type="number" min="1" max="10000" step="1" value="2000" required>
+      <p class="helper">A sample setting for this interactive demo.</p>
+      <button type="submit" class="primary">Save goal</button>
+    </form>
+  </dialog>
+</body>
+</html>
