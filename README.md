@@ -1,73 +1,28 @@
-# Jellyfish Portfolio
+# Grovskiy — Software Developer
 
-A Vue 3 portfolio site showcasing my frontend development projects.
+A static portfolio for selected projects and a visual archive of earlier web work. The site is generated with Node.js and has no runtime dependencies, build packages, external fonts, or required private repositories.
 
-## Demo
+## Local development
 
-Visit the live portfolio at [https://grovskiy.github.io/jellyfish-portfolio/](https://grovskiy.github.io/jellyfish-portfolio/)
-
-## Features
-
-- Vue 3 with Composition API
-- Animated transitions between portfolio items
-- Responsive design with Tailwind CSS
-- Submodule integration for showcasing work samples
-
-## Project Setup
+Use Node.js 20 or newer (the GitHub Pages workflow uses Node 24).
 
 ```sh
-# Clone the repository with submodules
-git clone --recurse-submodules https://github.com/Grovskiy/jellyfish-portfolio.git
-
-# Navigate to project directory
-cd jellyfish-portfolio
-
-# Install dependencies
-npm install
+npm run check    # Validate project records and local media
+npm run build    # Generate dist/
+npm test         # Check generated pages, links, and content invariants
+npm run preview  # http://127.0.0.1:4173/jellyfish-portfolio/
 ```
 
-### Development Server
+Project content is in `data/projects.json`, page templates in `scripts/build.mjs`, and styles and local assets in `site/`. Each featured project receives a real HTML page under `projects/<id>/`, so direct links and reloads work on GitHub Pages. Links are relative and do not require a server fallback.
 
-```sh
-npm run dev
-```
+`site/demos/tracking/` is a standalone sample-data adaptation of the public Simple Tracking Native project. It does not access an account, network service, or persistent data.
 
-### Production Build
+## Publishing
 
-```sh
-npm run build
-```
+A push to `master` runs the GitHub Actions workflow in `.github/workflows/deploy.yml`; it checks the project data, builds the static site, runs tests, and publishes `dist/` using GitHub Pages. No private-repository token or submodule is required. The legacy `work-sites` repository is a separate archive.
 
-### Linting
+## Content and font attribution
 
-```sh
-npm run lint
-```
+Historical previews are adapted representations of earlier work. Names and text in those previews are fictionalised for the portfolio. Original source projects are not shipped as running demos. Image and project provenance are maintained in the private archive.
 
-## Deployment to GitHub Pages
-
-Using GitHub Actions
-
-1. Push your code to the `master` branch of your GitHub repository
-2. GitHub Actions will automatically build and deploy your site
-3. Your site will be available at `https://yourusername.github.io/jellyfish-portfolio/`
-
-## Configuration
-
-- Modify `vite.config.js` to configure build settings
-- Update the `sites` array in `src/utils/sites.js` to add new portfolio items
-
-## Project Structure
-
-- `src/components/` - Vue components
-- `src/utils/` - Utility functions and data
-- `src/assets/` - Static assets (images, styles)
-- `work-sites/` - Submodule with code samples
-
-## Technologies Used
-
-- Vue 3
-- Vite
-- Tailwind CSS
-- SCSS
-- GitHub Pages
+Fraunces, Inter, and JetBrains Mono are distributed under the SIL Open Font License; their license texts are in `site/assets/fonts/`.

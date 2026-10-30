@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="t d">
+<title id="t">Simple Tracking interactive demo</title>
+<desc id="d">Illustration of a daily food log with a progress bar, sample entries, and calorie goal.</desc>
+<rect width="1200" height="800" rx="0" fill="#eeeeF3"/>
+<rect x="192" y="66" width="816" height="708" rx="30" fill="#dbdce6" opacity=".7"/>
+<rect x="180" y="52" width="816" height="708" rx="30" fill="#fff"/>
+<g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" fill="#20212a">
+<text x="226" y="113" font-size="16" font-weight="700" letter-spacing="2.5" fill="#727481">YOUR DAILY LOG</text>
+<text x="225" y="159" font-size="36" font-weight="700" letter-spacing="-1.5">Your daily log<tspan fill="#4f46e5">.</tspan></text>
+<rect x="899" y="100" width="50" height="50" rx="12" fill="#f6f6f9"/><circle cx="924" cy="125" r="9" fill="none" stroke="#777986" stroke-width="2"/><circle cx="924" cy="125" r="3" fill="none" stroke="#777986" stroke-width="2"/>
+<rect x="226" y="193" width="724" height="68" rx="14" fill="#f7f7fa" stroke="#efeff3"/>
+<text x="249" y="235" font-size="28" fill="#575967">←</text><text x="581" y="235" font-size="17" font-weight="700" text-anchor="middle">Today</text><text x="907" y="235" font-size="28" fill="#575967">→</text>
+<rect x="226" y="291" width="724" height="245" rx="18" fill="#fff" stroke="#e9e9f0" stroke-width="2"/>
+<text x="252" y="333" font-size="13" letter-spacing="2" font-weight="700" fill="#727481">DAILY PROGRESS</text>
+<text x="252" y="369" font-size="24" font-weight="700">Your overview</text><text x="917" y="369" text-anchor="end" font-size="22" font-weight="700" fill="#4f46e5">25%</text>
+<rect x="252" y="397" width="668" height="10" rx="5" fill="#ececf2"/><rect x="252" y="397" width="167" height="10" rx="5" fill="#4f46e5"/>
+<text x="252" y="454" font-size="16" fill="#747683">Consumed</text><text x="480" y="454" font-size="16" fill="#747683">Remaining</text><text x="708" y="454" font-size="16" fill="#747683">Daily goal</text>
+<text x="252" y="489" font-size="25" font-weight="700">496 <tspan font-size="14" fill="#727481" font-weight="400">kcal</tspan></text><text x="480" y="489" font-size="25" font-weight="700">1,504 <tspan font-size="14" fill="#727481" font-weight="400">kcal</tspan></text><text x="708" y="489" font-size="25" font-weight="700">2,000 <tspan font-size="14" fill="#727481" font-weight="400">kcal</tspan></text>
+<text x="226" y="588" font-size="13" letter-spacing="2" font-weight="700" fill="#727481">YOUR ENTRIES</text><text x="226" y="624" font-size="24" font-weight="700">Food log</text><text x="949" y="620" font-size="15" font-weight="600" text-anchor="end" fill="#777986">2 entries</text>
+<path d="M226 644H950 M226 713H950" stroke="#efeff3" stroke-width="2"/><rect x="226" y="661" width="38" height="38" rx="10" fill="#efeeff"/><text x="245" y="686" font-size="15" font-weight="700" fill="#4f46e5" text-anchor="middle">O</text><text x="282" y="679" font-size="17" font-weight="700">Oats</text><text x="282" y="699" font-size="13" fill="#737582">90 g</text><text x="920" y="685" font-size="17" font-weight="700" text-anchor="end">350 <tspan font-size="13" font-weight="400" fill="#737582">kcal</tspan></text>
+</g></svg>
