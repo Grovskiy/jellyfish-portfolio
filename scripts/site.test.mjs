@@ -74,3 +74,11 @@ test('previously published school and trading URLs remain available', async () =
   assert.ok(school.includes('../../demos/school/'));
   assert.ok(trading.includes('archive/financial-interface/'));
 });
+
+
+test('each direct demo link identifies its project', async () => {
+  const home = await read('index.html');
+  for (const p of data.projects.filter(p => p.featured && p.demo)) {
+    assert.ok(home.includes(`aria-label="Try interactive demo: ${p.title}"`), `missing label ${p.id}`);
+  }
+});
