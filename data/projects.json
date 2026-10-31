@@ -91,8 +91,8 @@
       "id": "archive-eat",
       "title": "Restaurant",
       "eyebrow": "Restaurant website",
-      "image": "restaurant.svg",
-      "alt": "Reconstructed visual for the restaurant project.",
+      "image": "restaurant-demo.webp",
+      "alt": "Interactive restaurant demo with a food photograph, navigation and booking link.",
       "color": "#291d3e",
       "url": "projects/eat/",
       "description": "Restaurant site with a menu, gallery, and booking form."
@@ -101,8 +101,8 @@
       "id": "archive-kasing",
       "title": "Casting platform",
       "eyebrow": "Casting interface",
-      "image": "casting.svg",
-      "alt": "Reconstructed visual for the casting platform project.",
+      "image": "casting-demo.webp",
+      "alt": "Interactive casting directory demo with search and a creative-work introduction.",
       "color": "#332044",
       "url": "projects/kasing/",
       "description": "Casting website interface with search and account forms."
@@ -111,8 +111,8 @@
       "id": "archive-bezop",
       "title": "Safety systems",
       "eyebrow": "Security and fire systems",
-      "image": "security.svg",
-      "alt": "Reconstructed visual for the safety systems project.",
+      "image": "security-demo.webp",
+      "alt": "Interactive safety-systems demo showing four service panels.",
       "color": "#25203f",
       "url": "projects/bezop/",
       "description": "Site for security and fire-detection services with a four-panel layout."
@@ -181,8 +181,8 @@
       "id": "archive-shkola",
       "title": "Language school",
       "eyebrow": "Education landing page",
-      "image": "school.svg",
-      "alt": "Reconstructed visual for the language school project.",
+      "image": "school-demo.webp",
+      "alt": "Interactive language-school demo with an illustrated London scene and classroom board.",
       "color": "#332044",
       "description": "Illustrated language-school landing page.",
       "url": "projects/shkola/"

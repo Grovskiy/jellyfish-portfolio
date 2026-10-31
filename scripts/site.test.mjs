@@ -36,6 +36,13 @@ test('archive entries have local media and distinct IDs', async () => {
   }
 });
 
+test('archive entries linking to featured work use the same preview', () => {
+  for (const entry of data.archive) {
+    const project = data.projects.find(p => entry.url === `projects/${p.id}/`);
+    if (project) assert.equal(entry.image, project.image, `inconsistent preview: ${entry.id}`);
+  }
+});
+
 test('all generated local links, assets and fragment targets resolve', async () => {
   const { readdir, stat } = await import('node:fs/promises');
   const { dirname, resolve: resolvePath, sep } = await import('node:path');
