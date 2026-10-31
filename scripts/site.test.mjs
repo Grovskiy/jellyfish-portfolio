@@ -33,6 +33,10 @@ test('archive entries have local media and distinct IDs', async () => {
     assert.ok(!seen.has(p.id), `duplicate ID: ${p.id}`); seen.add(p.id);
     await access(join(out,'media',p.image));
     if (p.url) { await access(join(out,p.url,'index.html')); assert.ok((await read('index.html')).includes(`href="${p.url}"`)); }
+    if (p.demo) {
+      await access(join(out,p.demo,'index.html'));
+      assert.ok((await read(`${p.url}index.html`)).includes(`../../${p.demo}`), `missing archive demo: ${p.id}`);
+    }
   }
 });
 

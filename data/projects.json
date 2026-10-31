@@ -165,7 +165,8 @@
       "alt": "Reconstructed visual for the information site project.",
       "color": "#3a2547",
       "description": "An early informational landing page with a blue-and-yellow palette.",
-      "url": "archive/armi/"
+      "url": "archive/armi/",
+      "demo": "demos/information/"
     },
     {
       "id": "archive-poet",
@@ -195,7 +196,8 @@
       "alt": "Reconstructed visual for the editorial interface project.",
       "color": "#25203f",
       "description": "A news-style interface with navigation and content panels.",
-      "url": "archive/test/"
+      "url": "archive/test/",
+      "demo": "demos/editorial/"
     },
     {
       "id": "archive-lemi",
@@ -205,7 +207,8 @@
       "alt": "Reconstructed visual for the business services project.",
       "color": "#3a2547",
       "description": "Business website with services and project sections.",
-      "url": "archive/lemi/"
+      "url": "archive/lemi/",
+      "demo": "demos/business/"
     },
     {
       "id": "archive-park",

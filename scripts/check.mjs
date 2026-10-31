@@ -19,6 +19,8 @@ if (!projects.some(p=>p.featured)) errors.push('No featured projects');
 if (!archive.length) errors.push('Archive is empty');
 for (const p of projects.filter(p=>p.featured)) {
   for (const key of ['summary','description','role','scope','disclosure','color']) if (!p[key]) errors.push(`Missing ${key}: ${p.id}`);
+}
+for (const p of [...projects, ...archive]) {
   if (p.demo) {
     if (!/^demos\/[a-z0-9-]+\/$/.test(p.demo)) errors.push(`Invalid demo path: ${p.demo}`);
     else try { await access(join(root,'site',p.demo,'index.html')); } catch { errors.push(`Missing demo: ${p.demo}`); }
