@@ -19,10 +19,12 @@ const canPreview = matchMedia('(hover: hover) and (pointer: fine) and (prefers-r
 if (canPreview.matches) {
   document.querySelectorAll('[data-preview-demo]').forEach(frame => {
     const card = frame.closest('.project-card');
-    let preview, animation = 0, active = false;
+    let preview, animation = 0, resetTimer = 0, active = false, hovered = false, focused = false, loaded = false;
     function resize() { frame.style.setProperty('--preview-scale', String(frame.clientWidth / 1440)); }
     function start() {
+      if (active) return;
       active = true;
+      clearTimeout(resetTimer);
       resize();
       if (!preview) {
         preview = document.createElement('iframe');
@@ -31,21 +33,34 @@ if (canPreview.matches) {
         preview.tabIndex = -1;
         preview.setAttribute('aria-hidden', 'true');
         preview.setAttribute('inert', '');
-        preview.addEventListener('load', animate);
+        // Hide the browser scrollbar without disabling programmatic scrolling.
+        // The captured still and the iframe must have the same usable width.
+        preview.setAttribute('scrolling', 'no');
+        preview.addEventListener('load', () => {
+          const style = preview.contentDocument.createElement('style');
+          style.textContent = 'html,body{scrollbar-width:none!important;scroll-behavior:auto!important}html::-webkit-scrollbar,body::-webkit-scrollbar{display:none!important}';
+          preview.contentDocument.head.append(style);
+          preview.contentWindow.scrollTo(0, 0);
+          loaded = true;
+          animate();
+        });
         preview.src = frame.dataset.previewDemo;
         frame.append(preview);
-      } else if (preview.contentDocument?.readyState === 'complete') animate();
+      } else if (loaded) animate();
     }
     function animate() {
       if (!active || !preview?.contentDocument) return;
       cancelAnimationFrame(animation);
       frame.classList.add('is-previewing');
       const max = Math.max(0, preview.contentDocument.documentElement.scrollHeight - 810);
-      const startTime = performance.now();
+      const from = preview.contentWindow.scrollY;
+      // Let the crossfade finish before the page begins moving.
+      const startTime = performance.now() + 550;
       const tick = now => {
         if (!active) return;
-        const progress = Math.min((now - startTime) / 9000, 1);
-        preview.contentWindow.scrollTo(0, max * progress);
+        const progress = Math.max(0, Math.min((now - startTime) / 9000, 1));
+        const eased = progress * progress * (3 - 2 * progress);
+        preview.contentWindow.scrollTo(0, from + (max - from) * eased);
         if (progress < 1) animation = requestAnimationFrame(tick);
       };
       animation = requestAnimationFrame(tick);
@@ -54,12 +69,17 @@ if (canPreview.matches) {
       active = false;
       cancelAnimationFrame(animation);
       frame.classList.remove('is-previewing');
-      if (preview?.contentWindow) preview.contentWindow.scrollTo(0, 0);
+      // Reset only after the iframe has faded out, so leaving never flashes the top.
+      resetTimer = setTimeout(() => preview?.contentWindow?.scrollTo(0, 0), 350);
     }
-    card.addEventListener('pointerenter', start);
-    card.addEventListener('pointerleave', stop);
-    card.addEventListener('focusin', start);
-    card.addEventListener('focusout', stop);
+    card.addEventListener('pointerenter', () => { hovered = true; start(); });
+    card.addEventListener('pointerleave', () => { hovered = false; if (!focused) stop(); });
+    card.addEventListener('focusin', () => { focused = true; start(); });
+    card.addEventListener('focusout', event => {
+      if (card.contains(event.relatedTarget)) return;
+      focused = false;
+      if (!hovered) stop();
+    });
     window.addEventListener('resize', resize, {passive:true});
   });
 }
