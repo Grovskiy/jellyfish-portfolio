@@ -66,3 +66,19 @@ test('all generated local links, assets and fragment targets resolve', async () 
     }
   }
 });
+
+test('previously published school and trading URLs remain available', async () => {
+  const school = await read('archive/shkola/index.html');
+  const trading = await read('projects/financial-interface/index.html');
+  assert.ok(school.includes('projects/shkola/'));
+  assert.ok(school.includes('../../demos/school/'));
+  assert.ok(trading.includes('archive/financial-interface/'));
+});
+
+
+test('each direct demo link identifies its project', async () => {
+  const home = await read('index.html');
+  for (const p of data.projects.filter(p => p.featured && p.demo)) {
+    assert.ok(home.includes(`aria-label="Try interactive demo: ${p.title}"`), `missing label ${p.id}`);
+  }
+});

@@ -1,23 +1,6 @@
 {
   "projects": [
     {
-      "id": "tracking",
-      "title": "Simple Tracking",
-      "eyebrow": "Web application",
-      "kind": "Interactive demo",
-      "featured": true,
-      "summary": "A calorie tracker for logging meals and checking daily progress.",
-      "description": "A lightweight interface for keeping track of food and a daily calorie goal. This demonstration uses sample data so the core interaction can be explored without an account.",
-      "role": "Development",
-      "scope": "Web application · Interaction design",
-      "year": null,
-      "image": "tracking.svg",
-      "alt": "Illustration of a calorie tracking interface with a daily overview and meal entries.",
-      "color": "#d5e5d8",
-      "demo": "demos/tracking/",
-      "disclosure": "This is an adapted demonstration of a personal project. The data in the demo is illustrative."
-    },
-    {
       "id": "eat",
       "title": "Restaurant website",
       "eyebrow": "Restaurant website",
@@ -30,8 +13,9 @@
       "year": null,
       "image": "restaurant.svg",
       "alt": "Reconstructed preview: adapted restaurant website with food photography and a dark red accent.",
-      "color": "#dac9bd",
-      "disclosure": "Archived work. This visual is a reconstruction of the original layout with adapted names and content."
+      "color": "#3a2043",
+      "disclosure": "Archived work. This visual is a reconstruction of the original layout with adapted names and content.",
+      "demo": "demos/restaurant/"
     },
     {
       "id": "kasing",
@@ -46,8 +30,9 @@
       "year": null,
       "image": "casting.svg",
       "alt": "Reconstructed preview: adapted casting platform interface with a search panel and profile cards.",
-      "color": "#d9d6c9",
-      "disclosure": "Archived work. This visual is a reconstruction of the original layout with adapted names and content."
+      "color": "#262344",
+      "disclosure": "Archived work. This visual is a reconstruction of the original layout with adapted names and content.",
+      "demo": "demos/casting/"
     },
     {
       "id": "bezop",
@@ -62,24 +47,43 @@
       "year": null,
       "image": "security.svg",
       "alt": "Reconstructed preview: adapted safety systems website with a geometric grid and red accents.",
-      "color": "#d9ddda",
-      "disclosure": "Archived work. This visual is a reconstruction of the original layout with adapted names and content."
+      "color": "#362042",
+      "disclosure": "Archived work. This visual is a reconstruction of the original layout with adapted names and content.",
+      "demo": "demos/security/"
     },
     {
-      "id": "financial-interface",
-      "title": "Trading interface",
-      "eyebrow": "Financial product interface",
-      "kind": "Archived frontend work",
+      "id": "shkola",
+      "title": "Language school",
+      "eyebrow": "Education website",
+      "kind": "Archived web project",
       "featured": true,
-      "summary": "An account interface for browsing offers and reviewing transactions.",
-      "description": "A selection of frontend screens for a larger financial product. This view presents a trading catalogue with filters and account navigation. The visual has been adapted with neutral branding and sample data.",
-      "role": "Frontend implementation of selected screens",
-      "scope": "Account interface · Data display",
+      "summary": "An illustrated English-school website with a playful layered scene.",
+      "description": "An early landing page for an English school. This interactive adaptation restores the original illustrated layers and presents the content in English with a mobile layout.",
+      "role": "Frontend development",
+      "scope": "Landing page · Illustration · Interaction",
       "year": null,
-      "image": "financial-interface.webp",
-      "alt": "Adapted trading interface with sample offers and account navigation.",
-      "color": "#d1d7e2",
-      "disclosure": "Archived work: selected interface implementation, presented with anonymised branding and illustrative data."
+      "image": "school.svg",
+      "alt": "Adapted language-school website with a layered London illustration and classroom board.",
+      "color": "#352141",
+      "demo": "demos/school/",
+      "disclosure": "Archived work. The visual and interactive demo are adaptations with fictional names and English content."
+    },
+    {
+      "id": "tracking",
+      "title": "Simple Tracking",
+      "eyebrow": "Web application",
+      "kind": "Interactive demo",
+      "featured": true,
+      "summary": "A calorie tracker for logging meals and checking daily progress.",
+      "description": "A lightweight interface for keeping track of food and a daily calorie goal. This demonstration uses sample data so the core interaction can be explored without an account.",
+      "role": "Development",
+      "scope": "Web application · Interaction design",
+      "year": null,
+      "image": "tracking.svg",
+      "alt": "Illustration of a calorie tracking interface with a daily overview and meal entries.",
+      "color": "#302044",
+      "demo": "demos/tracking/",
+      "disclosure": "This is an adapted demonstration of a personal project. The data in the demo is illustrative."
     }
   ],
   "archive": [
@@ -89,7 +93,7 @@
       "eyebrow": "Restaurant website",
       "image": "restaurant.svg",
       "alt": "Reconstructed visual for the restaurant project.",
-      "color": "#d8d5ca",
+      "color": "#291d3e",
       "url": "projects/eat/",
       "description": "Restaurant site with a menu, gallery, and booking form."
     },
@@ -99,7 +103,7 @@
       "eyebrow": "Casting interface",
       "image": "casting.svg",
       "alt": "Reconstructed visual for the casting platform project.",
-      "color": "#d8d5ca",
+      "color": "#332044",
       "url": "projects/kasing/",
       "description": "Casting website interface with search and account forms."
     },
@@ -109,7 +113,7 @@
       "eyebrow": "Security and fire systems",
       "image": "security.svg",
       "alt": "Reconstructed visual for the safety systems project.",
-      "color": "#d8d5ca",
+      "color": "#25203f",
       "url": "projects/bezop/",
       "description": "Site for security and fire-detection services with a four-panel layout."
     },
@@ -119,7 +123,7 @@
       "eyebrow": "Water-treatment website",
       "image": "water.svg",
       "alt": "Reconstructed visual for the water treatment project.",
-      "color": "#d8d5ca",
+      "color": "#3a2547",
       "description": "Product landing page for water-filtration systems.",
       "url": "archive/filtr/"
     },
@@ -129,7 +133,7 @@
       "eyebrow": "Sports website",
       "image": "sports.svg",
       "alt": "Reconstructed visual for the sports editorial project.",
-      "color": "#d8d5ca",
+      "color": "#291d3e",
       "description": "Sports website with editorial sections and a slideshow.",
       "url": "archive/gara/"
     },
@@ -139,7 +143,7 @@
       "eyebrow": "Cleaning-service website",
       "image": "cleaning.svg",
       "alt": "Reconstructed visual for the carpet care project.",
-      "color": "#d8d5ca",
+      "color": "#332044",
       "description": "Website for a carpet-cleaning service.",
       "url": "archive/kovro/"
     },
@@ -149,7 +153,7 @@
       "eyebrow": "Product website",
       "image": "garden.svg",
       "alt": "Reconstructed visual for the garden tools project.",
-      "color": "#d8d5ca",
+      "color": "#25203f",
       "description": "Product website for garden tools.",
       "url": "archive/torn/"
     },
@@ -159,7 +163,7 @@
       "eyebrow": "Information landing page",
       "image": "community.svg",
       "alt": "Reconstructed visual for the information site project.",
-      "color": "#d8d5ca",
+      "color": "#3a2547",
       "description": "An early informational landing page with a blue-and-yellow palette.",
       "url": "archive/armi/"
     },
@@ -169,7 +173,7 @@
       "eyebrow": "Personal website",
       "image": "writer.svg",
       "alt": "Reconstructed visual for the writer’s website project.",
-      "color": "#d8d5ca",
+      "color": "#291d3e",
       "description": "Personal website for a writer, with a photo-led layout.",
       "url": "archive/poet/"
     },
@@ -179,9 +183,9 @@
       "eyebrow": "Education landing page",
       "image": "school.svg",
       "alt": "Reconstructed visual for the language school project.",
-      "color": "#d8d5ca",
+      "color": "#332044",
       "description": "Illustrated language-school landing page.",
-      "url": "archive/shkola/"
+      "url": "projects/shkola/"
     },
     {
       "id": "archive-test",
@@ -189,7 +193,7 @@
       "eyebrow": "Editorial UI",
       "image": "dashboard.svg",
       "alt": "Reconstructed visual for the editorial interface project.",
-      "color": "#d8d5ca",
+      "color": "#25203f",
       "description": "A news-style interface with navigation and content panels.",
       "url": "archive/test/"
     },
@@ -199,7 +203,7 @@
       "eyebrow": "Business website",
       "image": "business.svg",
       "alt": "Reconstructed visual for the business services project.",
-      "color": "#d8d5ca",
+      "color": "#3a2547",
       "description": "Business website with services and project sections.",
       "url": "archive/lemi/"
     },
@@ -209,7 +213,7 @@
       "eyebrow": "Hospitality website",
       "image": "hotel.svg",
       "alt": "Reconstructed visual for the hotel website project.",
-      "color": "#d8d5ca",
+      "color": "#291d3e",
       "description": "Hotel website with rooms, dining and gallery sections.",
       "url": "archive/park/"
     },
@@ -220,8 +224,28 @@
       "description": "Frontend implementation of selected account screens for a financial product.",
       "image": "financial-interface.webp",
       "alt": "Adapted trading interface with sample offers and account navigation.",
-      "color": "#d1d7e2",
-      "url": "projects/financial-interface/"
+      "color": "#332044",
+      "url": "archive/financial-interface/"
+    },
+    {
+      "id": "archive-learning-ui",
+      "title": "Learning platform",
+      "eyebrow": "Frontend implementation task",
+      "description": "An adapted visual of a landing-page implementation for an online learning interface.",
+      "image": "learning-interface.webp",
+      "alt": "Adapted online-learning page with a search field and sample account panel.",
+      "color": "#2b2040",
+      "url": "archive/learning-ui/"
+    },
+    {
+      "id": "archive-account-ui",
+      "title": "Security account",
+      "eyebrow": "Frontend implementation task",
+      "description": "An adapted view of selected account screens implemented for a security software interface.",
+      "image": "account-interface.webp",
+      "alt": "Adapted security software account with device, licence and purchase panels.",
+      "color": "#29203c",
+      "url": "archive/account-ui/"
     }
   ]
 }
