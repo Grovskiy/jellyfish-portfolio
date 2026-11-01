@@ -41,6 +41,14 @@ test('archive entries have local media and distinct IDs', async () => {
   }
 });
 
+test('every archive entry links directly to a demo', async () => {
+  const home = await read('index.html');
+  for (const entry of data.archive) {
+    assert.ok(entry.demo, `missing demo: ${entry.id}`);
+    assert.ok(home.includes(`href="${entry.demo}" aria-label="Try interactive demo: ${entry.title}"`), `missing direct demo link: ${entry.id}`);
+  }
+});
+
 test('archive entries linking to featured work use the same preview', () => {
   for (const entry of data.archive) {
     const project = data.projects.find(p => entry.url === `projects/${p.id}/`);
