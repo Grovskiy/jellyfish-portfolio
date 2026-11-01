@@ -15,7 +15,9 @@ npm run preview  # http://127.0.0.1:4173/jellyfish-portfolio/
 
 Project content is in `data/projects.json`, page templates in `scripts/build.mjs`, and styles and local assets in `site/`. Each featured project receives a real HTML page under `projects/<id>/`, so direct links and reloads work on GitHub Pages. Links are relative and do not require a server fallback.
 
-`site/demos/` contains interactive adaptations of the archived websites and the public Simple Tracking Native project. Forms and sample data are illustrative; the demos do not transmit submissions or persist entries. Featured cards use moving previews on fine-pointer devices and respect reduced-motion preferences. Some archive cards load a non-interactive preview of their demo near the viewport, with a static fallback.
+`site/demos/` contains interactive adaptations of the archived websites and the public Simple Tracking Native project. Forms and sample data are illustrative; the demos do not transmit submissions or persist entries. Featured cards use moving previews on fine-pointer devices and respect reduced-motion preferences. Archive cards use static images captured from the matching demos. Earlier visual reconstructions are available on their project pages.
+
+For the nine archive covers listed in `data/archive-cover-manifest.json`, the tests compare the cover and demo source hashes with the recorded capture. After changing a listed demo, capture and visually verify a fresh cover, then update its two hashes in the manifest using `hashDemo` and `hashFile` from `scripts/cover-hash.mjs`.
 
 ## Publishing
 

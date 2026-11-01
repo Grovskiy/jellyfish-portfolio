@@ -4,6 +4,7 @@ import { readFile, access } from 'node:fs/promises';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
+import { hashDemo, hashFile } from './cover-hash.mjs';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const out = join(root,'dist');
 const data = JSON.parse(await readFile(join(root,'data/projects.json'),'utf8'));
@@ -49,11 +50,28 @@ test('every archive entry links directly to a demo', async () => {
   }
 });
 
-test('archive live previews point to the same demos as their links', async () => {
+test('archive demo covers are static and earlier visuals remain available', async () => {
   const home = await read('index.html');
-  for (const entry of data.archive.filter(p => p.livePreview)) {
-    assert.ok(home.includes(`data-archive-preview="${entry.demo}"`), `missing matching preview: ${entry.id}`);
-    assert.ok((await read(`${entry.url}index.html`)).includes(`data-archive-preview="../../${entry.demo}"`), `missing project preview: ${entry.id}`);
+  assert.doesNotMatch(home, /data-archive-preview=/);
+  for (const entry of data.archive.filter(p => p.earlierImage)) {
+    const page = await read(`${entry.url}index.html`);
+    assert.ok(page.includes(`../../media/${entry.image}?v=`), `missing demo cover: ${entry.id}`);
+    assert.ok(page.includes(`../../media/${entry.earlierImage}?v=`), `missing earlier visual: ${entry.id}`);
+    await access(join(out,'media',entry.earlierImage));
+  }
+});
+
+test('captured archive covers match the recorded demo revision', async () => {
+  const manifest = JSON.parse(await readFile(join(root, 'data/archive-cover-manifest.json'), 'utf8'));
+  const entries = data.archive.filter(p => p.earlierImage);
+  assert.equal(manifest.records.length, entries.length);
+  for (const entry of entries) {
+    const record = manifest.records.find(item => item.id === entry.id);
+    assert.ok(record, `missing cover record: ${entry.id}`);
+    assert.equal(record.demo, entry.demo);
+    assert.equal(record.cover, entry.image);
+    assert.equal(await hashDemo(join(root, 'site', entry.demo)), record.demoSha256, `demo changed; review its cover: ${entry.id}`);
+    assert.equal(await hashFile(join(root, 'site/media', entry.image)), record.coverSha256, `cover changed; review its manifest: ${entry.id}`);
   }
 });
 
