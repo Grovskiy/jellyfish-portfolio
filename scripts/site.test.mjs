@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFile, access } from 'node:fs/promises';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createHash } from 'node:crypto';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const out = join(root,'dist');
 const data = JSON.parse(await readFile(join(root,'data/projects.json'),'utf8'));
@@ -47,6 +48,15 @@ test('archive entries linking to featured work use the same preview', () => {
   }
 });
 
+test('image URLs change when their source changes', async () => {
+  const home = await read('index.html');
+  for (const p of [...data.projects.filter(p => p.featured), ...data.archive]) {
+    const content = await readFile(join(root, 'site/media', p.image));
+    const version = createHash('sha256').update(content).digest('hex').slice(0, 12);
+    assert.ok(home.includes(`media/${p.image}?v=${version}`), `unversioned media: ${p.id}`);
+  }
+});
+
 test('all generated local links, assets and fragment targets resolve', async () => {
   const { readdir, stat } = await import('node:fs/promises');
   const { dirname, resolve: resolvePath, sep } = await import('node:path');
@@ -64,7 +74,8 @@ test('all generated local links, assets and fragment targets resolve', async () 
     for (const match of html.matchAll(/\b(?:href|src)="([^"]+)"/g)) {
       const raw=match[1].replaceAll('&amp;','&');
       if (/^(?:https?:|mailto:|tel:|data:|\/\/)/.test(raw)) continue;
-      const [relative, fragment]=raw.split('#');
+      const [pathAndQuery, fragment]=raw.split('#');
+      const relative=pathAndQuery.split('?')[0];
       const path=relative ? resolvePath(dirname(page),decodeURIComponent(relative)) : page;
       assert.ok(path===out || path.startsWith(out+sep), `link escapes dist: ${raw}`);
       let target=path;

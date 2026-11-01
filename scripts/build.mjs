@@ -1,14 +1,19 @@
 import { readFile, readdir, rm, mkdir, cp, writeFile } from 'node:fs/promises';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createHash } from 'node:crypto';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const out = join(root, 'dist');
 const data = JSON.parse(await readFile(join(root, 'data/projects.json'), 'utf8'));
+const mediaVersions = new Map(await Promise.all([...new Set([...data.projects, ...data.archive].map(p => p.image).filter(Boolean))].map(async filename => {
+  const content = await readFile(join(root, 'site', 'media', filename));
+  return [filename, createHash('sha256').update(content).digest('hex').slice(0, 12)];
+})));
 const e = value => String(value ?? '').replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;');
 const arrow = '<span aria-hidden="true" class="arrow">↗</span>';
 const internal = (prefix, href) => `${prefix}${href}`;
-const asset = (prefix, filename) => `${prefix}media/${e(filename)}`;
+const asset = (prefix, filename) => `${prefix}media/${e(filename)}?v=${mediaVersions.get(filename)}`;
 const img = (p, prefix, lazy = true) => p.image ? `<img src="${asset(prefix, p.image)}" alt="${e(p.alt)}" ${lazy ? 'loading="lazy"' : 'fetchpriority="high"'} decoding="async" width="1600" height="1000">` : '<div class="image-placeholder" aria-hidden="true"><span>G<span class="placeholder-dot">.</span></span></div>';
 
 function header(prefix) {

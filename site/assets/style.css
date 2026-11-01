@@ -127,7 +127,7 @@ em{font-weight:400}
 .project-card:hover .project-frame,.project-card:focus-within .project-frame{box-shadow:0 22px 60px #0008}
 .archive-image{border:1px solid #49355f}
 .archive-copy h3 a:hover,.case-next a:hover{color:var(--orange)}
-.archive-demo{display:inline-block;margin-top:.55rem;color:var(--orange);font-size:.78rem;font-weight:700;text-decoration:underline;text-underline-offset:4px}.archive-demo:hover{color:#ffd0b0}
+.archive-demo{position:relative;z-index:2;display:inline-block;margin-top:.55rem;color:var(--orange);font-size:.78rem;font-weight:700;text-decoration:underline;text-underline-offset:4px}.archive-demo:hover{color:#ffd0b0}
 .about-section{background:#27183a}
 .about-mark{color:#533b70}.about-mark span{color:var(--orange)}
 .footer{color:#f5f1ff;border-top:1px solid #453752}
