@@ -21,6 +21,7 @@ for (const p of projects.filter(p=>p.featured)) {
   for (const key of ['summary','description','role','scope','disclosure','color']) if (!p[key]) errors.push(`Missing ${key}: ${p.id}`);
 }
 for (const p of [...projects, ...archive]) {
+  if (p.livePreview && !p.demo) errors.push(`Missing demo for live preview: ${p.id}`);
   if (p.demo) {
     if (!/^demos\/[a-z0-9-]+\/$/.test(p.demo)) errors.push(`Invalid demo path: ${p.demo}`);
     else try { await access(join(root,'site',p.demo,'index.html')); } catch { errors.push(`Missing demo: ${p.demo}`); }

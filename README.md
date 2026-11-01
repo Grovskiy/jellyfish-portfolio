@@ -15,7 +15,7 @@ npm run preview  # http://127.0.0.1:4173/jellyfish-portfolio/
 
 Project content is in `data/projects.json`, page templates in `scripts/build.mjs`, and styles and local assets in `site/`. Each featured project receives a real HTML page under `projects/<id>/`, so direct links and reloads work on GitHub Pages. Links are relative and do not require a server fallback.
 
-`site/demos/` contains standalone interactive adaptations of selected earlier websites, three additional archive interfaces, and the public Simple Tracking Native project. Forms and sample data are illustrative; these demos do not transmit submissions or persist entries. The cards use moving previews on fine-pointer devices and respect reduced-motion preferences.
+`site/demos/` contains interactive adaptations of the archived websites and the public Simple Tracking Native project. Forms and sample data are illustrative; the demos do not transmit submissions or persist entries. Featured cards use moving previews on fine-pointer devices and respect reduced-motion preferences. Some archive cards load a non-interactive preview of their demo near the viewport, with a static fallback.
 
 ## Publishing
 
