@@ -49,6 +49,14 @@ test('every archive entry links directly to a demo', async () => {
   }
 });
 
+test('archive live previews point to the same demos as their links', async () => {
+  const home = await read('index.html');
+  for (const entry of data.archive.filter(p => p.livePreview)) {
+    assert.ok(home.includes(`data-archive-preview="${entry.demo}"`), `missing matching preview: ${entry.id}`);
+    assert.ok((await read(`${entry.url}index.html`)).includes(`data-archive-preview="../../${entry.demo}"`), `missing project preview: ${entry.id}`);
+  }
+});
+
 test('archive entries linking to featured work use the same preview', () => {
   for (const entry of data.archive) {
     const project = data.projects.find(p => entry.url === `projects/${p.id}/`);

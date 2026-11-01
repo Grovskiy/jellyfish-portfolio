@@ -129,7 +129,8 @@
       "color": "#3a2547",
       "description": "Product landing page for water-filtration systems.",
       "url": "archive/filtr/",
-      "demo": "demos/water/"
+      "demo": "demos/water/",
+      "livePreview": true
     },
     {
       "id": "archive-gara",
@@ -140,7 +141,8 @@
       "color": "#291d3e",
       "description": "Sports website with editorial sections and a slideshow.",
       "url": "archive/gara/",
-      "demo": "demos/sports/"
+      "demo": "demos/sports/",
+      "livePreview": true
     },
     {
       "id": "archive-kovro",
@@ -151,7 +153,8 @@
       "color": "#332044",
       "description": "Website for a carpet-cleaning service.",
       "url": "archive/kovro/",
-      "demo": "demos/cleaning/"
+      "demo": "demos/cleaning/",
+      "livePreview": true
     },
     {
       "id": "archive-torn",
@@ -162,7 +165,8 @@
       "color": "#25203f",
       "description": "Product website for garden tools.",
       "url": "archive/torn/",
-      "demo": "demos/garden/"
+      "demo": "demos/garden/",
+      "livePreview": true
     },
     {
       "id": "archive-armi",
@@ -184,7 +188,8 @@
       "color": "#291d3e",
       "description": "Personal website for a writer, with a photo-led layout.",
       "url": "archive/poet/",
-      "demo": "demos/writer/"
+      "demo": "demos/writer/",
+      "livePreview": true
     },
     {
       "id": "archive-shkola",
@@ -228,7 +233,8 @@
       "color": "#291d3e",
       "description": "Hotel website with rooms, dining and gallery sections.",
       "url": "archive/park/",
-      "demo": "demos/hotel/"
+      "demo": "demos/hotel/",
+      "livePreview": true
     },
     {
       "id": "archive-financial-interface",
@@ -239,7 +245,8 @@
       "alt": "Adapted trading interface with sample offers and account navigation.",
       "color": "#332044",
       "url": "archive/financial-interface/",
-      "demo": "demos/trading/"
+      "demo": "demos/trading/",
+      "livePreview": true
     },
     {
       "id": "archive-learning-ui",
@@ -250,7 +257,8 @@
       "alt": "Adapted online-learning page with a search field and sample account panel.",
       "color": "#2b2040",
       "url": "archive/learning-ui/",
-      "demo": "demos/learning/"
+      "demo": "demos/learning/",
+      "livePreview": true
     },
     {
       "id": "archive-account-ui",
@@ -261,7 +269,8 @@
       "alt": "Adapted security software account with device, licence and purchase panels.",
       "color": "#29203c",
       "url": "archive/account-ui/",
-      "demo": "demos/account/"
+      "demo": "demos/account/",
+      "livePreview": true
     }
   ]
 }

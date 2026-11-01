@@ -128,6 +128,7 @@ em{font-weight:400}
 .archive-image{border:1px solid #49355f}
 .archive-copy h3 a:hover,.case-next a:hover{color:var(--orange)}
 .archive-demo{position:relative;z-index:2;display:inline-block;margin-top:.55rem;color:var(--orange);font-size:.78rem;font-weight:700;text-decoration:underline;text-underline-offset:4px}.archive-demo:hover{color:#ffd0b0}
+.archive-image[data-archive-preview]{position:relative}.archive-live-preview{position:absolute;top:0;left:0;width:1440px;height:810px;border:0;transform-origin:top left;transform:scale(var(--archive-preview-scale,0));pointer-events:none;opacity:0}.has-archive-preview .archive-live-preview{opacity:1}
 .about-section{background:#27183a}
 .about-mark{color:#533b70}.about-mark span{color:var(--orange)}
 .footer{color:#f5f1ff;border-top:1px solid #453752}
