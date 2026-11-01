@@ -1,0 +1,68 @@
+{
+  "description": "Initial demo viewport captures. Refresh a cover and these hashes together whenever its demo changes.",
+  "records": [
+    {
+      "id": "archive-filtr",
+      "demo": "demos/water/",
+      "cover": "water-demo.webp",
+      "demoSha256": "041912b61ca26fd3ff7ba6f8fd2552fc6ff8c9e9966f1f0fcddf58541ecb2437",
+      "coverSha256": "f4721ad90bc0913e28131684a9c267671a5fade5d0a3d866e4a973e17422ca42"
+    },
+    {
+      "id": "archive-gara",
+      "demo": "demos/sports/",
+      "cover": "sports-demo.webp",
+      "demoSha256": "4b418280d3a471121d0cbeea49b2d7d151624fdf7a1f20e42572d45e72e319ab",
+      "coverSha256": "9635627bd018eabd59eb28e65fa1edb5b9aa3cd127f1be781386750054571311"
+    },
+    {
+      "id": "archive-kovro",
+      "demo": "demos/cleaning/",
+      "cover": "cleaning-demo.webp",
+      "demoSha256": "6eb5c200f55ff0b784dd67af8bcd27278cbd92b43284c7d513011d83f1c6b170",
+      "coverSha256": "db83e4428912af4f91338c30471add6432b6baecd36be259866be0935751b823"
+    },
+    {
+      "id": "archive-torn",
+      "demo": "demos/garden/",
+      "cover": "garden-demo.webp",
+      "demoSha256": "13ad7e3821b3db5deb93670aaa7c6edfbe1e86b83f1c00ad0a5d18296e5fd116",
+      "coverSha256": "dc9d007cef328bd64737e987feed68128c92120d939ef606dd505fb1b7fc2a67"
+    },
+    {
+      "id": "archive-poet",
+      "demo": "demos/writer/",
+      "cover": "writer-demo.webp",
+      "demoSha256": "a4eeb1f3ffa8d748cbaf909fe6cc9293c9446398f1d38d215bb5996448282520",
+      "coverSha256": "0d8297a9b24361b1e25ad14655a2a9918ec449daa02d414edeafd560427cb377"
+    },
+    {
+      "id": "archive-park",
+      "demo": "demos/hotel/",
+      "cover": "hotel-demo.webp",
+      "demoSha256": "6697f3035dbf2c831a11d1e8ba09182bdb564d1870e4677064d6fbcd93e77d58",
+      "coverSha256": "dcd5187e8b2b562f731b80010dea8a0dbfdd809834093f3f494c6debe47d7207"
+    },
+    {
+      "id": "archive-financial-interface",
+      "demo": "demos/trading/",
+      "cover": "trading-demo.webp",
+      "demoSha256": "bd834cd87c154ef705284f490d5dca2e3422fffd747bb55373ed002428118cdd",
+      "coverSha256": "8a6cc3e0c1d32e1d88da4b7eb9067b48279d0b8ea3fc39626f6c4c54dcb37b18"
+    },
+    {
+      "id": "archive-learning-ui",
+      "demo": "demos/learning/",
+      "cover": "learning-demo.webp",
+      "demoSha256": "9ae9d1d92ef43be729128b4f1997bb6db863f61feb11e55300e92be940ca60b0",
+      "coverSha256": "e5ed430f4be392848d1054afd74d23d22246431aeb3355c8f9bfd27ade0df6fb"
+    },
+    {
+      "id": "archive-account-ui",
+      "demo": "demos/account/",
+      "cover": "account-demo.webp",
+      "demoSha256": "488dae84fcbdfbd62fa6005bd0fcb4876b06b5284752e0e75a05a52b46cc51e2",
+      "coverSha256": "c8e0ace40180073b65a2b88415c67548e66ace67fa3a0bc048e05df5051d151d"
+    }
+  ]
+}

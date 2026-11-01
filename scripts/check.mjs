@@ -14,6 +14,10 @@ for (const p of [...projects, ...archive]) {
     if (!/^[a-z0-9-]+\.(webp|png|svg|jpg)$/.test(p.image)) errors.push(`Invalid media filename: ${p.image}`);
     else try { await access(join(root,'site/media',p.image)); } catch { errors.push(`Missing media: ${p.image}`); }
   }
+  if (p.earlierImage) {
+    if (!/^[a-z0-9-]+\.(webp|png|svg|jpg)$/.test(p.earlierImage)) errors.push(`Invalid earlier media filename: ${p.earlierImage}`);
+    else try { await access(join(root,'site/media',p.earlierImage)); } catch { errors.push(`Missing earlier media: ${p.earlierImage}`); }
+  }
 }
 if (!projects.some(p=>p.featured)) errors.push('No featured projects');
 if (!archive.length) errors.push('Archive is empty');

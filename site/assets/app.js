@@ -13,40 +13,6 @@ if (mobileMenu) {
 const year = document.querySelector('[data-year]');
 if (year) year.textContent = new Date().getFullYear();
 
-// New archive demos provide their own still preview. Load them only near the
-// viewport; the original image remains available if the frame cannot load.
-const archivePreviews = document.querySelectorAll('[data-archive-preview]');
-if ('IntersectionObserver' in window && 'ResizeObserver' in window) {
-  const sizes = new ResizeObserver(entries => {
-    for (const entry of entries) entry.target.style.setProperty('--archive-preview-scale', String(entry.contentRect.width / 1440));
-  });
-  const loadPreview = new IntersectionObserver((entries, observer) => {
-    for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
-      const frame = entry.target;
-      observer.unobserve(frame);
-      const preview = document.createElement('iframe');
-      preview.className = 'archive-live-preview';
-      preview.title = 'Decorative project preview';
-      preview.tabIndex = -1;
-      preview.setAttribute('aria-hidden', 'true');
-      preview.setAttribute('inert', '');
-      preview.setAttribute('scrolling', 'no');
-      preview.addEventListener('load', () => {
-        if (!preview.contentDocument?.head || !preview.contentDocument.querySelector('main')) return;
-        const style = preview.contentDocument.createElement('style');
-        style.textContent = 'html,body{scrollbar-width:none!important;scroll-behavior:auto!important}html::-webkit-scrollbar,body::-webkit-scrollbar{display:none!important}';
-        preview.contentDocument.head.append(style);
-        frame.classList.add('has-archive-preview');
-      });
-      preview.src = frame.dataset.archivePreview;
-      sizes.observe(frame);
-      frame.append(preview);
-    }
-  }, {rootMargin: '200px'});
-  archivePreviews.forEach(frame => loadPreview.observe(frame));
-}
-
 // The portfolio card scrolls a real, same-origin demo while hovered.
 // Touch devices and reduced-motion preferences keep the static preview.
 const canPreview = matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');

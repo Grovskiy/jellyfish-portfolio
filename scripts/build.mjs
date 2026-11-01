@@ -6,7 +6,7 @@ import { createHash } from 'node:crypto';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const out = join(root, 'dist');
 const data = JSON.parse(await readFile(join(root, 'data/projects.json'), 'utf8'));
-const mediaVersions = new Map(await Promise.all([...new Set([...data.projects, ...data.archive].map(p => p.image).filter(Boolean))].map(async filename => {
+const mediaVersions = new Map(await Promise.all([...new Set([...data.projects, ...data.archive].flatMap(p => [p.image, p.earlierImage]).filter(Boolean))].map(async filename => {
   const content = await readFile(join(root, 'site', 'media', filename));
   return [filename, createHash('sha256').update(content).digest('hex').slice(0, 12)];
 })));
@@ -35,7 +35,7 @@ function projectCard(p, i) {
 function archiveCard(p, i) {
   const title = p.url ? `<a class="archive-title" href="${e(p.url)}">${e(p.title)}</a>` : e(p.title);
   const demo = p.demo ? `<a class="archive-demo" href="${e(p.demo)}" aria-label="Try interactive demo: ${e(p.title)}">Try demo ↗</a>` : '';
-  return `<article class="archive-card"><div class="archive-image" style="--card-color:${e(p.color || '#dcd8cd')}"${p.livePreview && p.demo ? ` data-archive-preview="${e(p.demo)}"` : ''}>${img(p, './')}</div><div class="archive-copy"><span class="archive-number" aria-hidden="true">${String(i + 1).padStart(2,'0')}</span><div><h3>${title}</h3><p>${e(p.eyebrow)}</p>${demo}</div></div></article>`;
+  return `<article class="archive-card"><div class="archive-image" style="--card-color:${e(p.color || '#dcd8cd')}">${img(p, './')}</div><div class="archive-copy"><span class="archive-number" aria-hidden="true">${String(i + 1).padStart(2,'0')}</span><div><h3>${title}</h3><p>${e(p.eyebrow)}</p>${demo}</div></div></article>`;
 }
 const featured = data.projects.filter(p => p.featured);
 const archived = data.archive;
@@ -58,7 +58,7 @@ for (const p of archived.filter(item => item.url?.startsWith('archive/'))) {
   const prefix = '../../';
   const path = p.url.replace(/\/$/, '');
   const demo = p.demo ? `<a class="pill-link" href="${internal(prefix,p.demo)}">Explore the interactive demo ${arrow}</a>` : '';
-  const body = `<main id="main" class="case-main"><div class="wrap"><a class="back-link" href="${prefix}index.html#archive">← Back to archive</a><div class="case-heading"><div><p class="section-index">ARCHIVE / ${e(p.eyebrow.toUpperCase())}</p><h1>${e(p.title)}<span class="period">.</span></h1></div><p>${e(p.description)}</p></div><div class="case-hero" style="--card-color:${e(p.color)}"><div class="project-frame"><div class="frame-bar" aria-hidden="true"><span><i></i><i></i><i></i></span><span>${e(p.eyebrow.toUpperCase())}</span><span>↗</span></div><div class="frame-image"${p.livePreview && p.demo ? ` data-archive-preview="${prefix}${e(p.demo)}"` : ''}>${img(p, prefix, false)}</div></div></div><div class="case-details"><div class="case-facts"><div><span>COLLECTION</span><strong>Earlier web work</strong></div><div><span>PROJECT TYPE</span><strong>${e(p.eyebrow)}</strong></div></div><div class="case-story"><p class="section-index">ABOUT THIS VISUAL</p><h2>From the <em>archive.</em></h2><p>${e(p.description)}</p><p class="case-disclosure">This is a reconstructed visual of an earlier project. Names and content have been adapted for this portfolio.</p><div class="case-actions">${demo}<a class="pill-link" href="${asset(prefix,p.image)}" target="_blank" rel="noopener noreferrer">${p.livePreview ? 'View earlier visual' : 'View full-size visual'} ${arrow}<span class="sr-only"> (opens in a new tab)</span></a></div></div></div></div></main>`;
+  const body = `<main id="main" class="case-main"><div class="wrap"><a class="back-link" href="${prefix}index.html#archive">← Back to archive</a><div class="case-heading"><div><p class="section-index">ARCHIVE / ${e(p.eyebrow.toUpperCase())}</p><h1>${e(p.title)}<span class="period">.</span></h1></div><p>${e(p.description)}</p></div><div class="case-hero" style="--card-color:${e(p.color)}"><div class="project-frame"><div class="frame-bar" aria-hidden="true"><span><i></i><i></i><i></i></span><span>${e(p.eyebrow.toUpperCase())}</span><span>↗</span></div><div class="frame-image">${img(p, prefix, false)}</div></div></div><div class="case-details"><div class="case-facts"><div><span>COLLECTION</span><strong>Earlier web work</strong></div><div><span>PROJECT TYPE</span><strong>${e(p.eyebrow)}</strong></div></div><div class="case-story"><p class="section-index">ABOUT THIS VISUAL</p><h2>From the <em>archive.</em></h2><p>${e(p.description)}</p><p class="case-disclosure">This is a reconstructed visual of an earlier project. Names and content have been adapted for this portfolio.</p><div class="case-actions">${demo}<a class="pill-link" href="${asset(prefix,p.earlierImage || p.image)}" target="_blank" rel="noopener noreferrer">${p.earlierImage ? 'View earlier visual' : 'View full-size visual'} ${arrow}<span class="sr-only"> (opens in a new tab)</span></a></div></div></div></div></main>`;
   const dir = join(out,path); await mkdir(dir,{recursive:true});
   await writeFile(join(dir,'index.html'),htmlPage({title:`${p.title} — Grovskiy`,description:p.description,body,prefix,canonical:p.url}));
 }
